@@ -1,9 +1,9 @@
 package hw2;
 
-public class Task3Random {
+public class Task3Degree {
 
     public static void main(String[] args) {
-       int count = 666;
+       int count = 56;
 
        if (count <= 100 && count >= 90) {
            System.out.println("Отлично");
