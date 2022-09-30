@@ -7,9 +7,10 @@ public class Task4 {
         int a = 1;
         int b = 9;
         int random_number = a + (int) (Math.random() * b);
+        Scanner in = new Scanner(System.in);
 
         while (true) {
-            Scanner in = new Scanner(System.in);
+
             System.out.println("Введите число");
             int userNumber = in.nextInt();
             if (userNumber == random_number) {

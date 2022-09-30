@@ -7,7 +7,6 @@ public class Task2 {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите число: ");
         int userNumber = in.nextInt();
-
         int sumNumber = 0;
         while (userNumber != 0) {
             sumNumber += (userNumber % 10);

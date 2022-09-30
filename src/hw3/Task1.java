@@ -4,13 +4,12 @@ package hw3;
         Вывести на экран первые 10 элементов последовательности 2 4 6 8 10 и тд */
 public class Task1 {
     public static void main(String[] args) {
-        for (int start = 90, end = 0; start > 0; start-=5) {
+        for (int start = 90; start > 0; start-=5) {
             System.out.println(start);
         }
 
-        for (int start1 = 2, count = 1; count <= 10; start1+=2) {
-            count++;
-            System.out.println(start1);
+        for (int start = 2, count = 1; count <= 10; start+=2, count++) {
+            System.out.println(start);
         }
 
     }
