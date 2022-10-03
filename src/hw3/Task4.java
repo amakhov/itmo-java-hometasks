@@ -9,26 +9,40 @@ public class Task4 {
         int random_number = a + (int) (Math.random() * b);
         Scanner in = new Scanner(System.in);
 
+        int count = 3;
         while (true) {
 
             System.out.println("Введите число");
+            System.out.println("Осталось " + count + " попыток!");
             int userNumber = in.nextInt();
+
+            count--;
+            System.out.println("Осталось " + count + " попыток!");
+            if (count == 0) {
+                System.out.println("Вы проиграли!");
+                break;
+            }
+
             if (userNumber == random_number) {
                 System.out.println("Вы угадали!");
                 break;
-            } else if (userNumber == 0) {
+            }
+            if (userNumber == 0) {
                 System.out.println("Выход из программы");
                 break;
-            } else if ((userNumber < 0) || (userNumber > 9)) {
+            }
+            if ((userNumber < 0) || (userNumber > 9)) {
                 System.out.println("Загаданное число в диапозоне от 1 до 9");
             }
-            else if (userNumber < random_number) {
+            if (userNumber < random_number) {
                 System.out.println("Число больше загаданного");
             }
             else {
                 System.out.println("число меньше загаданного");
             }
-
+            if (count == 0) {
+                    System.out.println("Вы проиграли!");
+                }
 
         }
     }

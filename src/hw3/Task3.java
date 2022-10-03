@@ -7,20 +7,17 @@ public class Task3 {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите кол-во тарелок: ");
         int plate = in.nextInt();
-        Scanner in1 = new Scanner(System.in);
         System.out.println("Введите моющиеся средство: ");
-        int washer = in1.nextInt();
+        double washer = in.nextDouble();
 
-        double remain = 0;
         while (plate > 0) {
             plate--;
-            remain = washer - 0.5;
             washer-=0.5;
-            if (remain < 0) {
+            if (washer < 0.5) {
                 System.out.println("Закончилось моющиеся средство");
                 break;
             }
-            System.out.println(remain);
+            System.out.println(washer);
 
         }
 
