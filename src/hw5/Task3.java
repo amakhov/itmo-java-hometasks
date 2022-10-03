@@ -14,11 +14,13 @@ public class Task3 {
             if (userWord.equalsIgnoreCase("exit")) break;
             for (String j : arrString) {
                 if (userWord.equalsIgnoreCase(j)) {
+                    i--;
                     break;
                 }
-                else {
+                if (j == null) {
                     arrString[i] = userWord;
                 }
+
              }
         }
 
