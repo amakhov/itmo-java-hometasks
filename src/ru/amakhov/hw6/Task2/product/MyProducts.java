@@ -15,15 +15,8 @@ public class MyProducts {
     }
 
     public void addProduct(Product product) {
-        for (int i = 0; i < products.length; i++) {
-            if (product[i] == null) {
-                product[i] = product;
-                return;
-            }
-        }
+
     }
 
-    public Product[] getProducts(){
-        return products;
-    }
+
   }
