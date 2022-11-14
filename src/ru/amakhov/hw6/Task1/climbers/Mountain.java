@@ -6,7 +6,7 @@ public class Mountain {
     private int height;
 
     public Mountain (String name, String country, int height){
-        if (name.length() < 4) {
+        if (name == null || name.length() < 4) {
             throw new IllegalArgumentException("имя должно быть больше 4-х символов");
         } else if (country.length() < 4){
             throw new IllegalArgumentException("имя должно быть больше 4-х символов");

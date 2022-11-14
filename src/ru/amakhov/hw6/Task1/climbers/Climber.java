@@ -5,14 +5,16 @@ public class Climber {
     private String address;
 
 
+
+
     public Climber (String name, String address) {
-        if (name.length() < 3) {
+        if (name == null || name.length() < 3) {    //  добавить
             throw new IllegalArgumentException("имя должно быть больше 3-х символов");
         }
-        this.name = name;
-        if (address.length() < 5) {
+        if (address == null || address.length() < 5) {
             throw new IllegalArgumentException("адрес должен быть больше 5 символов");
         }
+        this.name = name;
         this.address = address;
     }
 

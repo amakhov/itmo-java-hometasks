@@ -1,5 +1,7 @@
 package ru.amakhov.hw6.Task2.product;
 
+import java.util.Arrays;
+
 public class MyProducts {
     public int maxProteins;
     public int maxFats;
@@ -18,5 +20,14 @@ public class MyProducts {
 
     }
 
-
-  }
+    @Override
+    public String toString() {
+        return "MyProducts{" +
+                "maxProteins=" + maxProteins +
+                ", maxFats=" + maxFats +
+                ", maxCarbohydrates=" + maxCarbohydrates +
+                ", maxCalories=" + maxCalories +
+                ", products=" + Arrays.toString(products) +
+                '}';
+    }
+}

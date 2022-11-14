@@ -31,7 +31,7 @@ public class Application {
         System.out.println(group2);
 
         Group group3 = new Group();
-        group3.addMountain(mountain3);
+        group3.addMountain(mountain1);
         group3.addClimber(climber6);
    //     group3.addClimber(climber7);
         System.out.println(group3);

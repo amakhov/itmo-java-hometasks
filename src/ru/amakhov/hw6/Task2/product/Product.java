@@ -26,6 +26,21 @@ public class Product {
         this.nameProduct = nameProduct;
     }
 
+    public void addProteins(){
+        this.proteins = proteins;
+    }
+
+    public void addFats(){
+        this.fats = fats;
+    }
+
+    public void addCarbohydrates(){
+        this.carbohydrates = carbohydrates;
+    }
+    public void addCalories() {
+        this.calories = calories;
+    }
+
     @Override
     public String toString() {
         return "Product{" +

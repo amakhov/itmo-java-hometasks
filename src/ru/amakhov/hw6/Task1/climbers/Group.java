@@ -3,13 +3,16 @@ package ru.amakhov.hw6.Task1.climbers;
 import java.util.Arrays;
 
 public class Group {
-    private boolean isRecruiting = true;
+    public boolean isRecruiting;
     private String[] climbers = new String[3];
     private Mountain mountain;
 
     public Group() {
+        isRecruiting = true;
         if (this.climbers.length > 3) {
             throw new IllegalArgumentException("В группе могут быть только 3 альпиниста");
+        } else if (this.climbers.length == 3) {
+
         }
     }
 
@@ -17,19 +20,17 @@ public class Group {
         this.mountain = mountain;
     }
 
-        public void addClimber (Climber climber){
+
+        public void addClimber (Climber climber) {
 
             for (int i = 0; i < climbers.length; i++) {
-                if (i == climbers.length) {
-                    isRecruiting = true;
-                }
-
                 if (climbers[i] == null) {
                     climbers[i] = String.valueOf(climber);
                     return;
                 }
             }
-
+            isRecruiting = false;
+            System.out.println("Набор закрыт!");
         }
 
     @Override
