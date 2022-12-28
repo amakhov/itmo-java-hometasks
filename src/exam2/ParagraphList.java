@@ -1,7 +1,4 @@
-package exam2.menu;
-
-import exam2.Game;
-import exam2.Paragraph;
+package exam2;
 
 import java.util.Scanner;
 

@@ -3,6 +3,7 @@ package exam2;
 import exam2.menu.*;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 
 public class Game implements Serializable {
