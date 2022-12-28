@@ -1,12 +1,10 @@
-package fitness;
+package exam1;
 
-import fitness.base.Client;
-import fitness.base.Fitness;
-import fitness.base.Subscription;
-import fitness.enums.FitnessZone;
-import fitness.enums.Type;
-
-import java.util.Arrays;
+import exam1.base.Client;
+import exam1.base.Fitness;
+import exam1.base.Subscription;
+import exam1.enums.FitnessZone;
+import exam1.enums.Type;
 
 public class App {
     public static void main(String[] args) {
@@ -18,10 +16,10 @@ public class App {
         Client client4 = new Client("Alex", "Kee", 1990);
         Client client5 = new Client("Kate", "Ryan", 1973);
         Client client6 = new Client("Michael", "Flash", 1983);
-        Client client7 = new Client("Jorge", "Loo", 2000);
-        Client client8 = new Client("Jorge", "Loo", 2000);
+        Client client7 = new Client("Alma", "Key", 2000);
+        Client client8 = new Client("Jack", "Swim", 2000);
         Client client9 = new Client("Jorge", "Loo", 2000);
-        Client client10 = new Client("Jorge", "Loo", 2000);
+        Client client10 = new Client("Jorge", "Left", 2000);
 
         Subscription subscription1 = new Subscription(client1, Type.FULlTIME);
         Subscription subscription2 = new Subscription(client2, Type.DAYTIME);
@@ -35,16 +33,16 @@ public class App {
         Subscription subscription10 = new Subscription(client10, Type.FULlTIME);
 
         fitness.choseZone(subscription1, FitnessZone.SWIM);
-        fitness.choseZone(subscription2, FitnessZone.SWIM);
-        fitness.choseZone(subscription3, FitnessZone.SWIM);
+        fitness.choseZone(subscription2, FitnessZone.GYM);
+        fitness.choseZone(subscription3, FitnessZone.GROUP_EXERCISE);
         fitness.choseZone(subscription4, FitnessZone.GROUP_EXERCISE);
-        fitness.choseZone(subscription5, FitnessZone.SWIM);
-        fitness.choseZone(subscription6, FitnessZone.SWIM);
-        fitness.choseZone(subscription7, FitnessZone.SWIM);
+        fitness.choseZone(subscription5, FitnessZone.GROUP_EXERCISE);
+        fitness.choseZone(subscription6, FitnessZone.GYM);
+        fitness.choseZone(subscription7, FitnessZone.GYM);
         fitness.choseZone(subscription8, FitnessZone.GYM);
+        fitness.choseZone(subscription9, FitnessZone.GYM);
+        fitness.choseZone(subscription10, FitnessZone.GYM);
 
         fitness.visitors();
-
-
     }
 }

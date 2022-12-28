@@ -1,12 +1,14 @@
-package fitness.base;
+package exam1.base;
 
-import fitness.enums.FitnessZone;
+import exam1.enums.FitnessZone;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
-import static fitness.enums.FitnessZone.*;
+import static exam1.enums.FitnessZone.*;
 
 public class Fitness {
 
@@ -19,22 +21,22 @@ public class Fitness {
 
     public void choseZone (Subscription subscription, FitnessZone zoneChose) {
 
+        if (!isWorkFitness()) return;
+
         if (checkSubscriptionTerm(subscription) == 0) {
             System.out.println("Абонемент неактивен");
             return;
         }
 
-
         if (checkZone(subscription, zoneChose) == 1) {
-            System.out.println("Доступ в зону открыт");
+            System.out.println("Доступ в зону " + zoneChose + " открыт для " + subscription.getClient());
         } else {
-            System.out.println("Нет доступа");
+            System.out.println("Нет доступа в " + zoneChose + " для " + subscription.getClient() + "\n");
             return;
         }
 
-        System.out.println(checkOccupancy(zoneChose));
         if (checkOccupancy(zoneChose) == 0) {
-            System.out.println("Зал переполнен");
+            System.out.println("Зал переполнен\n");
             return;
         }
 
@@ -42,7 +44,7 @@ public class Fitness {
             for (int i = 0; i < zoneSwim.length; i++) {
                 if(zoneSwim[i] == null) {
                     zoneSwim[i] = subscription;
-                    System.out.println("Абонемент " + subscription.getClient() + " зарегистрирован в бассейне");
+                    System.out.println("Абонемент " + subscription.getClient() + " зарегистрирован в бассейне\n");
                     return;
                 }
             }
@@ -50,22 +52,22 @@ public class Fitness {
             for (int i = 0; i < zoneSwim.length; i++) {
                 if(zoneGym[i] == null) {
                     zoneGym[i] = subscription;
-                    System.out.println("Абонемент " + subscription.getClient() + " зарегистрирован в тренажерном зале");
+                    System.out.println("Абонемент " + subscription.getClient() + " зарегистрирован в тренажерном зале\n");
                     return;
                 }
             }
 
         } else if (zoneChose == GROUP_EXERCISE) {
-            for (int i = 0; i < zoneSwim.length; i++) {
-                if(zoneGym[i] == null) {
-                    zoneGym[i] = subscription;
-                    System.out.println("Абонемент " + subscription.getClient() + " зарегистрирован в зале групповых занятий");
+            for (int i = 0; i < zoneGroup.length; i++) {
+                if(zoneGroup[i] == null) {
+                    zoneGroup[i] = subscription;
+                    System.out.println("Абонемент " + subscription.getClient() + " зарегистрирован в зале групповых занятий\n");
                     return;
                 }
             }
 
         } else {
-            System.out.println("Не выбрана зона");
+            System.out.println("Не выбрана зона\n");
         }
     }
 
@@ -88,73 +90,77 @@ public class Fitness {
         return 0;
     }
 
-
     private int checkOccupancy(FitnessZone zoneChoice) {
-        int visitors = zoneSwim.length;
+        int visitorsSwim = zoneSwim.length, visitorsGym = zoneSwim.length, visitorsGroup = zoneSwim.length;
+
         if (zoneChoice == SWIM) {
           for (Subscription i: zoneSwim) {
-              visitors--;
+              visitorsSwim--;
               if (i == null) {
-                  return visitors;
+                  return visitorsSwim;
               }
             }
         }
 
         if (zoneChoice == GYM) {
             for (Subscription i: zoneGym) {
-                visitors--;
+                visitorsGym--;
                 if (i == null) {
-                    return visitors;
+                    return visitorsGym;
                 }
             }
         }
 
         if (zoneChoice == GROUP_EXERCISE) {
             for (Subscription i: zoneGroup) {
-                visitors--;
+                visitorsGroup--;
                 if (i == null) {
-                    return visitors;
+                    return visitorsGroup;
                 }
             }
         }
         return 0;
     }
 
+    public static String formatDateAndTime() {
+        LocalDate localDate = LocalDate.now();
+        LocalTime localTime = LocalTime.now();
+        LocalDateTime localDateTime = LocalDateTime.of(localDate, localTime);
+        String localDateTimeString = localDateTime.format(DateTimeFormatter.ofPattern("dd MMM hh:mm"));
+        return localDateTimeString;
+    }
+
     public void visitors() {
-        System.out.println("Посетители тренажерного зала: " + LocalDate.now() );
+        System.out.println("Посетители тренажерного зала - " + formatDateAndTime());
+        
         for (Subscription i: zoneGym) {
             if (i == null) break;
             System.out.println(i.getClient());
         }
 
-        System.out.println("\nПосетители бассеина: " + LocalDate.now());
+        System.out.println("\nПосетители бассеина - " + formatDateAndTime());
         for (Subscription i: zoneSwim) {
             if (i == null) break;
             System.out.println(i.getClient());
         }
 
-        System.out.println("\nПосетители групповых занятий: " + LocalDate.now());
+        System.out.println("\nПосетители групповых занятий - " + formatDateAndTime());
         for (Subscription i: zoneGroup) {
             if (i == null) break;
             System.out.println(i.getClient());
         }
     }
 
-    public static void isWorkFitness() {
+    private boolean isWorkFitness() {
         LocalTime timeNow = LocalTime.now();
-        System.out.println(timeNow);
         if (timeNow.isAfter(startWork) && timeNow.isBefore(finishWork)) {
-            System.out.println("Фитнес работает");
+            return true;
         } else {
-            System.out.println("Не работает.");
+            System.out.println("Фитнес не работает");
+            return false;
         }
-    }
-
-    public static void main(String[] args) {
-        isWorkFitness();
 
     }
-
 
     @Override
     public String toString() {

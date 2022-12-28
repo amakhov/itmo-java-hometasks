@@ -1,13 +1,13 @@
-package fitness.base;
+package exam1.base;
 
-import fitness.enums.FitnessZone;
-import fitness.enums.Type;
+import exam1.enums.FitnessZone;
+import exam1.enums.Type;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 
-import static fitness.enums.FitnessZone.*;
-import static fitness.enums.Type.*;
+import static exam1.enums.FitnessZone.*;
+import static exam1.enums.Type.*;
 
 public class Subscription {
 
@@ -16,7 +16,7 @@ public class Subscription {
     public LocalDate dateReg;
     public LocalDate dateEnd;
 
-    public FitnessZone zoneAccess[] = new FitnessZone[3];
+    public FitnessZone[] zoneAccess = new FitnessZone[3];
 
     public Subscription(Client client, Type typeSubscription) {
         setClient(client);
@@ -25,15 +25,15 @@ public class Subscription {
         dateReg = LocalDate.now();
 
         if (typeSubscription == ONETIME) {
-             dateEnd = LocalDate.now();
+             dateEnd = dateReg;
              zoneAccess[0] = SWIM;
              zoneAccess[1] = GYM;
         } else if (typeSubscription == DAYTIME) {
-             dateEnd = LocalDate.now().plusDays(365);
+             dateEnd = dateReg.plusDays(365);
              zoneAccess[0] = GYM;
              zoneAccess[1] = GROUP_EXERCISE;
         } else if (typeSubscription == FULlTIME) {
-             dateEnd = LocalDate.now().plusDays(180);
+             dateEnd = dateReg.plusDays(180);
              zoneAccess[0] = GYM;
              zoneAccess[1] = GROUP_EXERCISE;
              zoneAccess[2] = SWIM;

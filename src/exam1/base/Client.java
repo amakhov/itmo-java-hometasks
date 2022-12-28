@@ -1,11 +1,11 @@
-package fitness.base;
+package exam1.base;
 
 import java.time.LocalDate;
 
 public class Client {
-    private String firstName;
-    private String lastName;
-    int yearClient;
+    private final String firstName;
+    private final String lastName;
+    private final int yearClient;
 
     public Client(String firstName, String lastName, int yearClient) {
         this.firstName = firstName;

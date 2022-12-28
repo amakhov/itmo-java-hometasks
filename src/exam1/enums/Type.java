@@ -1,9 +1,9 @@
-package fitness.enums;
+package exam1.enums;
 
 public enum Type {
-    ONETIME("Разовый"),
+    DAYTIME("Дневной"),
     FULlTIME("Полный"),
-    DAYTIME("Дневной");
+    ONETIME("Разовый");
 
 
     Type(String days) {
