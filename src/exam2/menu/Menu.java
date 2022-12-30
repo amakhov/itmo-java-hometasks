@@ -9,13 +9,15 @@ public class Menu extends Game {
     CommandI exit;
     CommandI choice;
     CommandI load;
+    CommandI choiceGame;
 
-    public Menu(CommandI start, CommandI safe, CommandI exit, CommandI choice, CommandI load) {
+    public Menu(CommandI start, CommandI safe, CommandI exit, CommandI choice, CommandI load, CommandI choiceGame) {
         this.start = start;
         this.safe = safe;
         this.exit = exit;
         this.choice = choice;
         this.load = load;
+        this.choiceGame = choiceGame;
     }
 
     public void startMenu() {
@@ -29,6 +31,6 @@ public class Menu extends Game {
         start.execute();
         safe.execute();
         exit.execute();
-        choice.execute();
+        choiceGame.execute();
     }
 }

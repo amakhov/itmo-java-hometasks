@@ -1,10 +1,5 @@
 package exam2.menu;
 
-import exam2.Game;
-import exam2.Paragraph;
-
-import java.util.Scanner;
-
 public class MenuItem{
     public void startGame(){
         System.out.println("1. Начать игру");
